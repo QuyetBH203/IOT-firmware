@@ -13,7 +13,7 @@ String DataToSend::toJson()
     doc["deviceId"] = deviceId;
     doc["location"] = jsonLocation;
     doc["status"] = status;
-    doc["toggleAntiTheft"] = toggleAntiTheft;
+    doc["antiTheft"] = antiTheft;
     // Serialize the JSON document
     serializeJson(doc, result);
     return result;

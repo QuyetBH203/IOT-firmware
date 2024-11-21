@@ -19,7 +19,7 @@ struct DataToSend
   String deviceId = "";
   std::vector<double> location = {0, 0};
   DeviceStatus status = NONE;
-  bool toggleAntiTheft = false;
+  bool antiTheft = false;
   String toJson();
 };
 

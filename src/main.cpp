@@ -185,7 +185,7 @@ bool checkSosAndAntiTheft(uint8_t sosPin, unsigned int timeOut = 2000U)
 			{
 				Serial.println("SOS");
 				deviceStatus = SOS;
-				dataToSendSosAndAntiTheft.toggleAntiTheft = statusAntiTheft;
+				dataToSendSosAndAntiTheft.antiTheft = statusAntiTheft;
 				dataToSendSosAndAntiTheft.status = deviceStatus; // SOS
 				statusWarining = true;
 				// dataUpdateCycle = DATA_UPDATE_CYCLE_DEFAUlT/5;
@@ -222,7 +222,7 @@ bool checkSosAndAntiTheft(uint8_t sosPin, unsigned int timeOut = 2000U)
 							digitalWrite(BUZZER, statusBuzzer);
 							delay(300);
 						}
-						dataToSendSosAndAntiTheft.toggleAntiTheft = statusAntiTheft;
+						dataToSendSosAndAntiTheft.antiTheft = statusAntiTheft;
 						now = millis();
 						if (statusAntiTheft == true)
 						{
@@ -412,6 +412,6 @@ void updateData()
 	// dataToSend.location[0] = curruntLocation.lat;
 	// dataToSend.location[1] = curruntLocation.lng;
 	dataToSend.status = deviceStatus;
-	dataToSend.toggleAntiTheft = statusAntiTheft;
+	dataToSend.antiTheft = statusAntiTheft;
 	client.publish(topicPub, dataToSend.toJson().c_str());
 }
